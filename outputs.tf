@@ -16,5 +16,9 @@ output "instance-public-dns-children" {
   value       = "${aws_instance.instance_children.*.public_dns}"
 }
 output "instructions" {
-  value = "ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns}"
+  value = <<EOT
+  ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns}
+  http://${aws_instance.instance_main.public_dns}:3000/
+  User: admin@pronghorn Pass: admin  
+  EOT
 }

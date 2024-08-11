@@ -136,6 +136,21 @@ resource "aws_security_group" "sg" {
     to_port     = "3000"
   }
 
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "27017"
+    to_port     = "27017"
+  }
+
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "6379"
+    to_port     = "6379"
+  }
 
   egress {
     protocol    = "-1"

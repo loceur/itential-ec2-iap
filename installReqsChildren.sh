@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "This system is NOT ready to use.  The install script takes a while.  Give it a bit." > /etc/motd
+echo -e "\n\n\nThis system is NOT ready to use.  The install script takes a while.  Give it a bit.\n\n" > /etc/motd
 
 #extra ssh key insert via variable from terraform
 echo -e "${extra_key}" >> /home/ec2-user/.ssh/authorized_keys
