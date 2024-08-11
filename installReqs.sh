@@ -45,7 +45,7 @@ all:
 
     mongodb:
         hosts:
-            `aws ssm get-parameter --name "${SSM_PATH}" --debug | jq .Parameter.Value | sed -e 's/"//g' | cut -d, -f1`:
+            `aws ssm get-parameter --name "${SSM_PATH}"  | jq .Parameter.Value | sed -e 's/"//g' | cut -d, -f1`:
 
     platform:
         hosts:

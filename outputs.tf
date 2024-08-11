@@ -17,8 +17,17 @@ output "instance-public-dns-children" {
 }
 output "instructions" {
   value = <<EOT
+
+  You can login here immediately:
   ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns}
+  If you want to watch progress, run:
+  ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns} 'tail -f /var/log/cloud-init-output.log'
+
+
+  In about 10 minutes, this should work:
   http://${aws_instance.instance_main.public_dns}:3000/
   User: admin@pronghorn Pass: admin  
+  
+  
   EOT
 }
