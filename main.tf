@@ -14,7 +14,7 @@ resource "tls_private_key" "sshkey" {
  }
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "terraform-ssh-key"
+  key_name   = "terraform-ssh-key-${random_id.id.hex}"
   public_key = tls_private_key.sshkey.public_key_openssh
 }
 

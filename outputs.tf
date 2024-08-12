@@ -19,9 +19,9 @@ output "instructions" {
   value = <<EOT
 
   You can login here immediately:
-  ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns}
+  ssh -i sshkey-terraform-ssh-key-${random_id.id.hex} ec2-user@${aws_instance.instance_main.public_dns}
   If you want to watch progress, run:
-  ssh -i sshkey-terraform-ssh-key ec2-user@${aws_instance.instance_main.public_dns} 'tail -f /var/log/cloud-init-output.log'
+  ssh -i sshkey-terraform-ssh-key-${random_id.id.hex} ec2-user@${aws_instance.instance_main.public_dns} 'tail -f /var/log/cloud-init-output.log'
 
 
   In about 10 minutes, this should work:
