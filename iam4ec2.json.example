@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:List*",
+                "s3:Get*"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::*"
+        },
+       {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeParameters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:ListTagsForResource",
+                "ssm:ListTagsForResource",
+                "ssm:GetParameters",
+                "ssm:GetParameter",
+                "ssm:GetParametersByPath",
+                "ssm:PutParameter"
+            ],
+            "Resource": "arn:aws:ssm:us-east-1:CHANGE_ME_TO_YOUR_ACCOUNT_ID:parameter/ec2/*"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeParameters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:ListTagsForResource",
+                "ssm:ListTagsForResource",
+                "ssm:GetParameters",
+                "ssm:GetParameter",
+                "ssm:GetParametersByPath",
+                "ssm:PutParameter"
+            ],
+            "Resource": "arn:aws:ssm:us-east-1::parameter/ec2/*"
+        }
