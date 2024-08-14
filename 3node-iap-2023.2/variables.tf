@@ -16,7 +16,7 @@ variable "instance-ami" {
   default     = "ami-07d9b9ddc6cd8dd30"
 }
 variable "instance-ami-mongodb" {
-  description = "The AMI (Amazon Machine Image) that identifies the instance"
+  description = "AWS 2023 AMI"
   type        = string
   # Amazon Linux 2023
   default      = "ami-0ae8f15ae66fe8cda"
@@ -33,7 +33,7 @@ variable "instance-type" {
   type        = string
   default     = "t2.2xlarge"
 }
-variable "instance-type-mongodb" {
+variable "instance-type-t2large" {
   description = "The instance type to be used"
   type        = string
   default     = "t2.large"
