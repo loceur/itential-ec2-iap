@@ -126,6 +126,7 @@ resource "aws_security_group" "sg" {
   name   = "${var.sg-tag-name}"
   vpc_id = "${aws_vpc.vpc.id}"
 
+  #ssh
   ingress {
     
     protocol    = "tcp"
@@ -133,6 +134,7 @@ resource "aws_security_group" "sg" {
     from_port   = "22"
     to_port     = "22"
   }
+  #http IAP/Grafana
   ingress {
     
     protocol    = "tcp"
@@ -140,10 +142,18 @@ resource "aws_security_group" "sg" {
     from_port   = "3000"
     to_port     = "3000"
   }
+  #http IAG
   ingress {
     
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    from_port   = "8083"
+    to_port     = "8083"
+  }
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
     from_port   = "9090"
     to_port     = "9090"
   }
@@ -162,6 +172,7 @@ resource "aws_security_group" "sg" {
     from_port   = "6379"
     to_port     = "6379"
   }
+
   ingress {
     
     protocol    = "tcp"
@@ -169,6 +180,41 @@ resource "aws_security_group" "sg" {
     from_port   = "26379"
     to_port     = "26379"
   }
+
+  # Prometheus needs
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "9100"
+    to_port     = "9100"
+  }
+
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "9216"
+    to_port     = "9216"
+  }
+
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "9121"
+    to_port     = "9121"
+  }
+  ingress {
+    
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/8"]
+    from_port   = "9256"
+    to_port     = "9256"
+  }
+
+
+
   egress {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]

@@ -6,7 +6,7 @@ echo -e "\n\n\n\nThis system is NOT ready to use.  The install script takes a wh
 echo -e "${extra_key}" >> /home/ec2-user/.ssh/authorized_keys
 echo -e "${extra_key_priv}" >> /home/ec2-user/.ssh/id_ed25519
 
-yum install git ansible-core unzip -y
+yum install git ansible-core unzip net-tools -y
 sudo -u ec2-user ansible-galaxy collection install itential.deployer
 
 
