@@ -10,6 +10,18 @@ variable "aws-profile" {
   default     = "default"
 }
 
+variable "aws-access-key" {
+  description = "AWS provided access key token for account to run this plan."
+  type        = string
+  default     = "NO_ACCESS_KEY"
+}
+
+variable "aws-secret-key" {
+  description = "AWS provided access key token for account to run this plan."
+  type        = string
+  default     = "NO_SECRET_KEY"
+}
+
 variable "instance-ami" {
   description = "The AMI (Amazon Machine Image) that identifies the instance"
   type        = string

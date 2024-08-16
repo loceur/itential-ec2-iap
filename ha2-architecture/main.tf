@@ -1,6 +1,8 @@
 provider "aws" {
   region  = "${var.aws-region}"
   profile = "${var.aws-profile}"
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
 }
 
 # Use this to get unique names for stuff
