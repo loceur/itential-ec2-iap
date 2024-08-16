@@ -1,6 +1,7 @@
 provider "aws" {
   region  = "${var.aws-region}"
-  profile = "${var.aws-profile}"
+  #use profile if using aws configure
+  #profile = "${var.aws-profile}"
   access_key = "${var.aws-access-key}"
   secret_key = "${var.aws-secret-key}"
 }
